@@ -7,9 +7,8 @@
 #include <stdlib.h>
 #include <iostream>
 #include <fstream>
+#include "myReplace.hpp"
 using namespace std;
-
-void myReplace(string&, string const&, string const&);
 
 int main(int argc, char* argv[])
 {
@@ -32,18 +31,4 @@ int main(int argc, char* argv[])
 	while(getline(fromFile, line)) myReplace(line, from, to), cout << line << endl;
 
 	return 0;
-}
-
-void myReplace(string& source, string const& from, string const& to)
-{
-	size_t pos;
-	size_t old_pos = 0;
-	size_t toLength = to.length();
-	size_t fromLength = from.length();
-
-	while((pos = source.find(from, old_pos)) != string::npos)
-	{
-		old_pos =  pos + toLength;
-		source.replace(pos, fromLength, to);
-	};
 }
