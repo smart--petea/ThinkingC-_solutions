@@ -38,9 +38,19 @@ class Number
             return Number(x_ - a.x_);
         }
 
+        bool operator==(int const& aInt) const
+        {
+            return (int)x_ == aInt;
+        }
+
         bool operator==(double const& aDouble) const
         {
             return x_ == aDouble;
+        }
+
+        operator int() const
+        {
+            return (int)x_;
         }
 
         friend std::ostream& operator<<(std::ostream& os, Number const& a)
@@ -62,6 +72,7 @@ int main()
     std::cout << "a + b = " << a + b << std::endl;
     std::cout << "a - b = " << a - b << std::endl;
     std::cout << "a / b = " << a / b << std::endl;
+///    std::cout << "(int)b = " << (int)b << std::endl;
 
     try {
         std::cout << "a / c = " << a / c << std::endl;
